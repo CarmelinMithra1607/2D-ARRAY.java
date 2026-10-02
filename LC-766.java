@@ -1,20 +1,12 @@
 class Solution {
-    public boolean checkXMatrix(int[][] grid) {
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        int r = matrix.length;
+        int c = matrix[0].length;
 
-        int n = grid.length;
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-
-                if (i == j || i + j == n - 1) {
-                    if (grid[i][j] == 0) {
-                        return false;
-                    }
-                } 
-                else {
-                    if (grid[i][j] != 0) {
-                        return false;
-                    }
+        for (int i = 0; i < r - 1; i++) {
+            for (int j = 0; j < c - 1; j++) {
+                if (matrix[i][j] != matrix[i + 1][j + 1]) {
+                    return false;
                 }
             }
         }
